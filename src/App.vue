@@ -2,7 +2,7 @@
   <div id="wrapper">
     <nav class="navbar is-dark">
       <div class="navbar-brand">
-        <router-link to="/" class="navbar-item"><strong>E-shop</strong></router-link>
+        <router-link to="/" tag="img" class="navbar-item routerlink" ><img src ="./assets/world_of_books_logo.png"></router-link>
         <a class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu" @click="showMobileMenu = !showMobileMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -11,12 +11,16 @@
       </div>
       <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu}">
         <div class="navbar-end">
-          <router-link to="" class="navbar-item">C1</router-link>
-          <router-link to="" class="navbar-item">C2</router-link>
-
+          <router-link to="" class="navbar-item">Drama</router-link>
+          <router-link to="" class="navbar-item">Fantasy</router-link>
+          <router-link to="" class="navbar-item">Historical</router-link>
+          <router-link to="" class="navbar-item">Romantic</router-link>
+          <router-link to="" class="navbar-item">Sci-Fi</router-link>
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/log-in" class="button is-light">Log in</router-link>
+              <router-link to="/log-in" class="button is-light">
+              <span class="icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></span>
+              <span>Log in</span></router-link>
               <router-link to="/card" class="button is-success"> 
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart</span>
