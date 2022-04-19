@@ -27,6 +27,8 @@
 
 <script>
 import axios from 'axios';
+import { toast } from 'bulma-toast';
+
 export default{
    name: 'ProductView',
    data(){
@@ -40,17 +42,21 @@ export default{
    },
    methods:{
        async getProduct(){
+           this.$store.commit('setIsLoading', true);
+
            const category_slug = this.$route.params.category_slug;
            const product_slug = this.$route.params.product_slug;
 
            await axios
             .get(`/api/v1/products/${category_slug}/${product_slug}`)
             .then(response => {
-                this.product = response.data
+                this.product = response.data;
+                document.title = this.product.name + ' | World of Books';
             })
             .catch(err => {
                 console.log(err);
             });
+            this.$store.commit('setIsLoading', false);
        }, 
        addToCart(){
            if(isNaN(this.quantity) || this.quantity < 1){
@@ -63,6 +69,15 @@ export default{
            };
 
            this.$store.commit('addToCart', item);
+
+           toast({
+               message: 'Product was successfully added to cart!',
+               type: 'is-success',
+               dismissible: true,
+               pauseOnHover: true,
+               duration: 2000, 
+               position: 'bottom-right',
+           });
        }
    }
 }
