@@ -56,7 +56,8 @@ export default {
         }
     },
     mounted() {
-        this.cart = this.$store.state.cart
+        this.cart = this.$store.state.cart;
+        document.title = "Cart | World of Books";
     },
     methods: {
         removeFromCart(item) {

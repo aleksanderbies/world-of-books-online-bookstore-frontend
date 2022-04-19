@@ -37,9 +37,20 @@
           <router-link to="/sci-fi" class="navbar-item">Sci-Fi</router-link>
           <div class="navbar-item">
             <div class="buttons">
-              <router-link to="/log-in" class="button is-light">
-              <span class="icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></span>
-              <span>Log in</span></router-link>
+              <template v-if="$store.state.isAuthenticated">
+                <router-link to="/my-account" class="button is-light">
+                <span class="icon"><i class="fa-solid fa-user"></i></span>
+                  <span>My Account</span>
+                </router-link>
+              </template>
+
+              <template v-else>
+                <router-link to="/log-in" class="button is-light">
+                  <span class="icon"><i class="fa-solid fa-arrow-right-to-bracket"></i></span>
+                  <span>Log in</span>
+                </router-link>
+              </template>
+
               <router-link to="/cart" class="button is-success"> 
                 <span class="icon"><i class="fas fa-shopping-cart"></i></span>
                 <span>Cart ({{ cartTotalLength }})</span>

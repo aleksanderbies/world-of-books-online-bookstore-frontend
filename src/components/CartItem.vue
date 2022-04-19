@@ -41,7 +41,7 @@ export default {
         updateCart() {
             localStorage.setItem('cart', JSON.stringify(this.$store.state.cart));
         },
-        removeFromCart(item) {
+        removeFromCart(item){
             this.$emit('removeFromCart', item);
             this.updateCart();
         },
