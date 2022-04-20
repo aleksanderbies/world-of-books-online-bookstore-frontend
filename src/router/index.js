@@ -10,6 +10,8 @@ import CartView from '../views/CartView.vue';
 import SignUpView from '../views/SignUpView.vue';
 import LogInView from '../views/LogInView.vue';
 import MyAccountView from '../views/MyAccountView.vue';
+import CheckoutView from '../views/CheckoutView.vue';
+import SuccessView from '../views/SuccessView.vue';
 
 const routes = [
   {
@@ -49,9 +51,22 @@ const routes = [
     }
   },
   {
+    path: '/cart/checkout',
+    name: 'checkout',
+    component: CheckoutView,
+    meta: {
+      requireLogin: true
+    }
+  },
+  {
     path: '/cart',
     name: 'cart',
     component: CartView
+  },
+  {
+    path: '/cart/success',
+    name: 'success',
+    component: SuccessView
   },
   {
     path: '/:category_slug/:product_slug/',
